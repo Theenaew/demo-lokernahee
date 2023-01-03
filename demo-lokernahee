@@ -2283,7 +2283,7 @@ function GetBlade()
 end
 
 function AttackNoCD(Num)
-    if Num == 0.1 then
+    if Num == 1 then
         local AC = CbFw2.activeController
         for i = 1,1 do 
             local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(

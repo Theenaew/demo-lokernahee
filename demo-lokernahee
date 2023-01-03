@@ -2259,7 +2259,6 @@ end)
 local plr = game.Players.LocalPlayer
 local CbFw = debug.getupvalues(require(game.Players.LocalPlayer.PlayerScripts.CombatFramework))
 local CbFw2 = CbFw[2]
---require(game.ReplicatedStorage.Util.CameraShaker):Stop()
 
 if true or false then
     if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Death") then
@@ -2319,11 +2318,10 @@ function AttackNoCD(Num)
                 debug.setupvalue(AC.attack, 7, u10)
                 pcall(function()
                     if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
-                        AC.animator.anims.basic[1]:Play(15.25,15.25,15.25)
+                        AC.animator.anims.basic[1]:Play(0.001,0.001,0.001)
                         game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBlade()))
                         game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
                         game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, 2, "")
-                        AC.animator.anims.basic[1]:Stop()
                     end
                 end)
             end
@@ -2378,12 +2376,12 @@ if not shared.cpc then
 end
 
 spawn(function()
-    while task.wait() do for i = 1,1 do
+    while task.wait() do 
         STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
             local Hits = STOPRL.getBladeHits(b,c,d)
             if Hits then
                 STOP.play = function() end
-                a:Play(15.25,15.25,35.45)
+                a:Play(15.25,15.25,15.25)
                 func(Hits)                
                 STOP.play = shared.cpc
                 wait(0.5)
@@ -2391,18 +2389,18 @@ spawn(function()
             end         
             if Hits then
                 STOP.play = function() end
-                a:Play(15.25,15.25,35.45)
+                a:Play(15.25,15.25,15.25)
                 func(Hits)
                 STOP.play = shared.cpc
-                wait(0.1)
+                wait(0.25)
                 a:Stop()
             end      
         end
-    end end
+    end
 end)
 
 spawn(function()
-    while wait() do 
+    while task.wait() do 
         pcall(function()
             if true or false then
                 if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and Fast_Delay and Fast_Custom then
@@ -2420,7 +2418,7 @@ b2 = tick()
 spawn(function()
     while wait(FastWait) do
         if b2 - tick() > .95 then
-            wait(0.1)
+            wait(0.01)
             b2 = tick()
         end
         pcall(function()
@@ -2441,14 +2439,14 @@ spawn(function()
 end)
 
 if FastWait == nil then
-    FastWait = 0.5
+    FastWait = 0.1
 end
 
-tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra"}, function(v)
+tap1:AddDropdown("Fast Attack Mode ", { "Default", "Ultra"}, function(v)
     if v == "Default" then
         FastWait = .1
     elseif v == "Ultra" then
-        FastWait = 1 / 0 / 1 / 0
+        FastWait = 1 / 0 / 1
     else
         error("FastAttack Error")
     end

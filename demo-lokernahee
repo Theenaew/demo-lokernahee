@@ -2414,7 +2414,13 @@ spawn(function()
         end)
     end
 end)
-
+spawn(function()
+	while wait(.1) do
+		if DevilFruit then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint", "Demon Fruit", 1)
+		end
+	end
+end)
 b2 = tick()
 spawn(function()
     while wait(FastWait) do
@@ -2806,4 +2812,7 @@ tap4:AddButton("Fps Boost",function()
             e.Enabled = false
         end
     end
+end)
+tap4:AddToggle("Auto DevilFruit", _G.Setting.DevilFruit, function(v)
+    DevilFruit = v
 end)

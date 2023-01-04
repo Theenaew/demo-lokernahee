@@ -2318,7 +2318,7 @@ function AttackNoCD(Num)
                 debug.setupvalue(AC.attack, 7, u10)
                 pcall(function()
                     if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
-                        AC.animator.anims.basic[1]:Play(15.25,15.25,15.25)
+                        AC.animator.anims.basic[1]:Play(10.20,10.20,10.20)
                         game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetBlade()))
                         game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
                         game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, 2, "")
@@ -2382,7 +2382,7 @@ spawn(function()
             local Hits = STOPRL.getBladeHits(b,c,d)
             if Hits then
                 STOP.play = function() end
-                a:Play(15.25,15.25,15.25)
+                a:Play(10.20,10.20,10.20)
                 func(Hits)                
                 STOP.play = shared.cpc
                 wait(0.5)
@@ -2390,7 +2390,7 @@ spawn(function()
             end         
             if Hits then
                 STOP.play = function() end
-                a:Play(15.25,15.25,15.25)
+                a:Play(10.20,10.20,10.20)
                 func(Hits)
                 STOP.play = shared.cpc
                 wait(0.5)

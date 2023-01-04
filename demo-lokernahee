@@ -2470,12 +2470,14 @@ tap1:AddButton("Redeem Code", function()
     Redeem = true
 end)
 tap1:AddToggle("Auto Bones", false, function(v)
-if ThreeWorld then
+    if ThreeWorld then
     Auto_Bone = v
+    end
 end)
 tap1:AddToggle("Auto Cake", false, function(v)
-if ThreeWorld then
+    if ThreeWorld then
     atoMoB = v
+    end
 end)
 
 
